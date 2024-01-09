@@ -1,0 +1,39 @@
+<div>
+  <div class="grid grid-cols-4 gap-5 max-w-[420px] mb-5">
+    <div *ngFor="let style of availableStyles" class="cursor-pointer relative bg-[{{style.background}}] w-[87px] h-[61px] border-[4px] border-white rounded-[12px]">
+      <span class="absolute right-0 top-0 w-[24px] h-[16px] rounded-tl-[0] rounded-br-[0] rounded-[6px] text-center bg-white material-icons text-[12px] text-black font-bold">check</span>
+    </div>
+  </div>
+
+  <form>
+    <p class="text-black text-[20px] mb-[7px]">Choose Color</p>
+    <div class="max-w-[480px] h-auto bg-white rounded-[12px] p-4 flex mb-5">
+      <label for="color" class="text-black my-auto">#input</label>
+      <input id="color" type="color" class="ms-auto" />
+    </div>
+    <p class="text-black text-[20px] mb-[7px]">Upload Background</p>
+    <div class="max-w-[480px] h-auto bg-white rounded-[12px] p-4 flex gap-5 mb-5">
+      <input id="background" type="file" class="w-[100px]"/>
+      <label for="background" class="text-[#ccc] my-auto flex-grow">file://images/cat-pattern.svg</label>
+    </div>
+    <p class="text-black text-[20px] mb-[7px]">Choose Color</p>
+    <div class="max-w-[480px] h-[57px] bg-white rounded-[12px] p-4 flex mb-5">
+      <select id="font" class="text-black w-full">
+        <option value="">Roboto</option>
+        <option value="">Comic sans</option>
+        <option value="">Times New Roman</option>
+        <option value="">Arial</option>
+      </select>
+    </div>
+    <form class="text-black flex gap-5 justify-between max-w-[480px] px-10">
+      <div class="flex gap-5">
+        <label for="story">Story</label><br>
+        <input class="w-[24px] h-[24px]" name="group" type="radio" checked id="story" value="Story">
+      </div>
+      <div class="flex gap-5">
+        <label for="post">Post</label><br>
+        <input class="w-[24px] h-[24px]" name="group" type="radio" id="post" value="Post">
+      </div>
+    </form>
+  </form>
+</div>

@@ -1,0 +1,32 @@
+<aside id="wrapper" class="mt-[70px] mx-auto d-flex bg-[#E66454] w-full max-w-[390px] p-[35px] min-w-[320px] h-auto max-h-[844px]">
+  <input type="file" id="imageInput" hidden (change)="onFileSelect($event)" accept="image/*">
+  <div>
+    <img [src]="imageURL" id="preview" src="assets/images/test-user.png" class="m-auto" alt="profile-image" width="280" height="280">
+  </div>
+  <p contenteditable class="text-center text-[45px] mt-[48px] mb-[38px] mx-auto font-bold text-black" id="username">nebaexplosion</p>
+  <div class="grid grid-cols-2 gap-5 mb-5 justify-between text-black">
+    <div class="d-flex flex-col text-left">
+      <p contenteditable class="max-w-[160px] pl-5 font-bold text-[31px] leading-[-8%]">1234</p>
+      <p contenteditable class="max-w-[160px] font-bold text-[15px] leading-[-8%]">Hours os staring at your screen</p>
+    </div>
+    <div class="d-flex flex-col text-right">
+      <p contenteditable class="max-w-[160px] pr-5 font-bold  text-[31px] leading-[-8%]">1234</p>
+      <p contenteditable class="max-w-[160px] font-bold text-[15px] leading-[-8%]">Hours os staring at your screen</p>
+    </div>
+  </div>
+  <div class="grid grid-cols-2 gap-5 mb-5 justify-between text-black">
+    <div class="d-flex flex-col text-left">
+      <p contenteditable class="max-w-[160px] pl-5 font-bold text-[31px] leading-[-8%]">1234</p>
+      <p contenteditable class="max-w-[160px] font-bold text-[15px] leading-[-8%]">Hours os staring at your screen</p>
+    </div>
+    <div class="d-flex flex-col text-right">
+      <p contenteditable class="max-w-[160px] pr-5 font-bold  text-[31px] leading-[-8%]">1234</p>
+      <p contenteditable class="max-w-[160px] font-bold text-[15px] leading-[-8%]">Hours os staring at your screen</p>
+    </div>
+  </div>
+  <p contenteditable class="font-bold text-black text-[15px] text-center">#CINEMA4D #3DARTISWRAPPED #GRAPHICS #3DART #MOTIONART #DESIGN</p>
+</aside>
+<div class="p-5">
+  <button (click)="handleUpload()" id="uploadButton" class="px-5 py-[12px] bg-[#00000050] rounded-[6px] w-full text-center font-bold text-[20px] mb-5">UPLOAD IMAGE</button>
+  <button (click)="handleDownload()" class="px-5 py-[12px] bg-[#00000050] rounded-[6px] w-full text-center font-bold text-[20px]">DOWNLOAD DESIGN</button>
+</div>
