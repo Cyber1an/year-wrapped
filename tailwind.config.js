@@ -5,7 +5,11 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      'roboto': 'Roboto, sans-serif;'
+      'roboto': 'Roboto, sans-serif;',
+      'inter': 'Inter, sans-serif;',
+      'dancing': 'Dancing Script, cursive',
+      'salsa': 'Salsa, cursive',
+      'genos': 'Genos, sans-serif'
     },
     extend: {},
   },

@@ -1,30 +1,30 @@
-<aside id="wrapper" class="mt-[70px] mx-auto d-flex bg-[#E66454] w-full max-w-[390px] p-[35px] min-w-[320px] h-auto max-h-[844px]">
+<aside id="wrapper" [style.font-family]="selectedFont"  [style.background]="selectedStyle ? selectedStyle.background : '#E66454'" [style.color]="selectedStyle   ? selectedStyle.color : '#000000'" class="{{!postType ? 'mt-[20px]' : 'pt-[20px]'}} md:mt-[70px] mx-auto d-flex w-full max-w-[390px] h-auto">
   <input type="file" id="imageInput" hidden (change)="onFileSelect($event)" accept="image/*">
-  <div>
-    <img [src]="imageURL" id="preview" src="assets/images/test-user.png" class="m-auto" alt="profile-image" width="280" height="280">
+  <div *ngIf="!postType" class="pt-[35px]">
+    <img [src]="imageURL" id="preview" src="assets/images/default-user.png" class="m-auto" alt="profile-image" width="280" height="280">
   </div>
-  <p contenteditable class="text-center text-[45px] mt-[48px] mb-[38px] mx-auto font-bold text-black" id="username">nebaexplosion</p>
-  <div class="grid grid-cols-2 gap-5 mb-5 justify-between text-black">
+  <p contenteditable class="text-center text-[32px] md:text-[45px] {{!postType ? 'my-[20px] md:mt-[48px] md:mb-[38px]' : ' mb-[20px]'}}  mx-auto font-bold" id="username">nebaexplosion</p>
+  <div class="grid grid-cols-2 gap-5 mb-5 px-[35px] justify-between">
     <div class="d-flex flex-col text-left">
-      <p contenteditable class="max-w-[160px] pl-5 font-bold text-[31px] leading-[-8%]">1234</p>
-      <p contenteditable class="max-w-[160px] font-bold text-[15px] leading-[-8%]">Hours os staring at your screen</p>
+      <p contenteditable class="max-w-[160px] text-center font-bold text-[31px] leading-[-8%]">1.5B</p>
+      <p contenteditable class="max-w-[160px] text-center font-bold text-[15px] leading-[-8%]">Streams</p>
     </div>
     <div class="d-flex flex-col text-right">
-      <p contenteditable class="max-w-[160px] pr-5 font-bold  text-[31px] leading-[-8%]">1234</p>
-      <p contenteditable class="max-w-[160px] font-bold text-[15px] leading-[-8%]">Hours os staring at your screen</p>
+      <p contenteditable class="max-w-[160px] text-center font-bold  text-[31px] leading-[-8%]">54.2M</p>
+      <p contenteditable class="max-w-[160px] text-center font-bold text-[15px] leading-[-8%]">Listeners</p>
     </div>
   </div>
-  <div class="grid grid-cols-2 gap-5 mb-5 justify-between text-black">
+  <div class="grid grid-cols-2 gap-5 mb-5 px-[35px]     justify-between">
     <div class="d-flex flex-col text-left">
-      <p contenteditable class="max-w-[160px] pl-5 font-bold text-[31px] leading-[-8%]">1234</p>
-      <p contenteditable class="max-w-[160px] font-bold text-[15px] leading-[-8%]">Hours os staring at your screen</p>
+      <p contenteditable class="max-w-[160px] text-center font-bold text-[31px] leading-[-8%]">67.1M</p>
+      <p contenteditable class="max-w-[160px] text-center font-bold text-[15px] leading-[-8%]">Hours</p>
     </div>
     <div class="d-flex flex-col text-right">
-      <p contenteditable class="max-w-[160px] pr-5 font-bold  text-[31px] leading-[-8%]">1234</p>
-      <p contenteditable class="max-w-[160px] font-bold text-[15px] leading-[-8%]">Hours os staring at your screen</p>
+      <p contenteditable class="max-w-[160px] text-center font-bold  text-[31px] leading-[-8%]">173</p>
+      <p contenteditable class="max-w-[160px] text-center font-bold text-[15px] leading-[-8%]">Countries</p>
     </div>
   </div>
-  <p contenteditable class="font-bold text-black text-[15px] text-center">#CINEMA4D #3DARTISWRAPPED #GRAPHICS #3DART #MOTIONART #DESIGN</p>
+  <p contenteditable class="px-[35px] pb-[35px] font-bold text-[15px] text-center">#CINEMA4D #3DARTISWRAPPED #GRAPHICS #3DART #MOTIONART #DESIGN</p>
 </aside>
 <div class="p-5">
   <button (click)="handleUpload()" id="uploadButton" class="px-5 py-[12px] bg-[#00000050] rounded-[6px] w-full text-center font-bold text-[20px] mb-5">UPLOAD IMAGE</button>

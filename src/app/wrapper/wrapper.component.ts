@@ -1,16 +1,21 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import * as html2canvas from 'html2canvas';
+import {NgIf} from "@angular/common";
 @Component({
   selector: 'app-wrapper',
   standalone: true,
-  imports: [],
+  imports: [
+    NgIf
+  ],
   templateUrl: './wrapper.component.html',
   styleUrl: './wrapper.component.scss'
 })
 export class WrapperComponent {
+  @Input() selectedStyle: any;
+  @Input() postType: any;
+  @Input() selectedFont: any;
 
-  imageURL: string | ArrayBuffer | null = 'assets/images/test-user.png';
-
+  imageURL: string | ArrayBuffer | null = 'assets/images/default-user.png';
   handleDownload() {
     const element = document.getElementById('wrapper')
     // @ts-ignore
@@ -35,17 +40,16 @@ export class WrapperComponent {
     }
   }
 
-    onFileSelect(event: Event): void {
-      const target = event.target as HTMLInputElement;
-      const file: File = (target.files as FileList)[0];
+  onFileSelect(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    const file: File = (target.files as FileList)[0];
 
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = e => this.imageURL = reader.result;
-        reader.readAsDataURL(file);
-      }
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = e => this.imageURL = reader.result;
+      reader.readAsDataURL(file);
     }
-
+  }
 
 }
 
