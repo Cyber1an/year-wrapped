@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterOutlet} from '@angular/router';
 import {WrapperComponent} from "./wrapper/wrapper.component";
 import {ControlPanelComponent} from "./control-panel/control-panel.component";
 import {BackgroundStyle} from "./control-panel/style";

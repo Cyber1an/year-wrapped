@@ -1,5 +1,5 @@
-<aside id="wrapper" [style.font-family]="selectedFont"  [style.background]="selectedStyle ? selectedStyle.background : '#E66454'" [style.color]="selectedStyle   ? selectedStyle.color : '#000000'" class="{{!postType ? 'mt-[20px]' : 'pt-[20px]'}} md:mt-[70px] mx-auto d-flex w-full max-w-[390px] h-auto">
-  <input type="file" id="imageInput" hidden (change)="onFileSelect($event)" accept="image/*">
+<aside #wrapper [style.font-family]="selectedFont"  [style.background]="selectedStyle ? selectedStyle.background : '#E66454'" [style.color]="selectedStyle   ? selectedStyle.color : '#000000'" class="{{!postType ? 'mt-[20px]' : 'pt-[20px]'}} md:mt-[70px] mx-auto d-flex w-full max-w-[390px] h-auto">
+  <input type="file" #imageInput hidden (change)="onFileSelect($event)" accept="image/*">
   <div *ngIf="!postType" class="pt-[35px]">
     <img [src]="imageURL" id="preview" src="assets/images/default-user.png" class="m-auto" alt="profile-image" width="280" height="280">
   </div>

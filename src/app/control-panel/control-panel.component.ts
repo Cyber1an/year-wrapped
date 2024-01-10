@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import {Component, Output, EventEmitter, ChangeDetectionStrategy} from '@angular/core';
 import { BackgroundStyle } from './style'
 import {NgFor, NgForOf, NgIf} from "@angular/common";
 import {FormsModule} from "@angular/forms";

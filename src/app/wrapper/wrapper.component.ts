@@ -1,9 +1,11 @@
-import {Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ElementRef, Input, Renderer2, ViewChild} from '@angular/core';
 import * as html2canvas from 'html2canvas';
 import {NgIf} from "@angular/common";
+
 @Component({
   selector: 'app-wrapper',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     NgIf
   ],
@@ -14,29 +16,35 @@ export class WrapperComponent {
   @Input() selectedStyle: any;
   @Input() postType: any;
   @Input() selectedFont: any;
-
+  @ViewChild('wrapper') wrapperElement: ElementRef<any> | undefined
+  @ViewChild('imageInput') inputElement: ElementRef<any> | undefined
   imageURL: string | ArrayBuffer | null = 'assets/images/default-user.png';
-  handleDownload() {
-    const element = document.getElementById('wrapper')
-    // @ts-ignore
-    html2canvas.default(element).then((canvas) => {
-      const image = canvas.toDataURL('image/png')
 
+  constructor(private renderer: Renderer2) { }
+
+  handleDownload() {
+    // @ts-ignore
+    html2canvas.default(this.wrapperElement?.nativeElement).then((canvas: HTMLCanvasElement) => {
+      const image = canvas.toDataURL('image/png')
       this.downloadImage(image, 'container-screenshot.png')
     })
   }
 
-  downloadImage(dataurl: any, filename: string) {
-       var a = document.createElement("a");
-       a.href = dataurl;
-       a.setAttribute("download", filename);
-       a.click();
+  downloadImage(dataUrl: any, filename: string) {
+    const a = this.renderer.createElement('a');
+    this.renderer.setAttribute(a, 'href', dataUrl);
+    this.renderer.setAttribute(a, 'download', filename);
+    this.renderer.setStyle(a, 'display', 'none');
+    this.renderer.appendChild(document.body, a);
+
+    a.click();
+
+    this.renderer.removeChild(document.body, a);
   }
 
   handleUpload() {
-    const input = document.getElementById('imageInput');
-    if(input) {
-        input.click()
+    if(this.inputElement) {
+      this.inputElement.nativeElement.click()
     }
   }
 
